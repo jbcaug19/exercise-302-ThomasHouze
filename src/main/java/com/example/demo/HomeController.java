@@ -18,23 +18,23 @@ public class HomeController {
 
     @RequestMapping("/")
     public String listJobs(Model model) {
-        model.addAttribute("todos", jobRepository.findAll() );
+        model.addAttribute("flights", jobRepository.findAll() );
         return "list";
     }
 
     @GetMapping("/add")
     public String JobForm(Model model) {
-        model.addAttribute("todo", new Todo());
+        model.addAttribute("flight", new Flight());
         return "jobform";
 
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid Todo todo, BindingResult result){
+    public String processForm(@Valid Flight flight, BindingResult result){
         if (result.hasErrors()){
             return "jobform";
         }
-        jobRepository.save(todo);
+        jobRepository.save(flight);
         return "redirect:/";
     }
 

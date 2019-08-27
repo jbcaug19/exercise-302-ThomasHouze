@@ -6,14 +6,12 @@
 </head>
 <body>
 
-<h2> Task List</h2>
+<h2>Flight List</h2>
 
 <a href="/add">To Do List</a><br />
-<div th:each="todo : ${todo}">
-   <h4 th:inline="text">[[${job.task_name}]] @ [[${job.due_date}]]</h4>
-    <p th:text="${job.priority}"></p>
-
-
+<div th:each="flight : ${flight}">
+   <h4 th:inline="text">[[${flight.airline}]] @ [[${flight.departure}]] @ [[${flight.destination}]] @ [[${flight.date}]]</h4>
+    <p th:text="${flight.number}"></p>
 
 </div>
 
